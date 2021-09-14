@@ -3,7 +3,7 @@ const { default: axios } = require("axios")
 class Logger {
   constructor(token, author, send) {
     this.token = token
-    this.baseUrl = 'http://localhost:3014'
+    this.baseUrl = 'https://logger.procyon.host'
     this.author = author
     this.send = send
   }
@@ -16,16 +16,19 @@ class Logger {
       const response = await axios.post(this.baseUrl + `/logs/add/${this.token}`, options)
       return response.data
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 
   async getLogs(options) {
-    if (!options.author) options.author = this.author
-    const response = await axios.post(this.baseUrl + `/logs/get/${this.token}`, options)
-    return response.data
+    try {
+      if (!options.author) options.author = this.author
+      const response = await axios.post(this.baseUrl + `/logs/get/${this.token}`, options)
+      return response.data.logs
+    } catch (error) {
+      console.error(error)
+    }
   }
-
 }
 
 module.exports = Logger
