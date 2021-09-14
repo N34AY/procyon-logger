@@ -1,6 +1,6 @@
 const Logger = require('./index')
 
-const logger = new Logger('f7d6ea6c-878c-4f2d-942c-c381e4ac704a', 'test', true)
+const logger = new Logger('token', 'author', true)
 
 async function testSendLog() {
   const response = await logger.sendLog({ author: 'test author', message: 'test msg', type: 'info', data: { error: 'test error' }, send: true })
