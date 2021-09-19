@@ -22,7 +22,6 @@ class Logger {
 
   async getLogs(options) {
     try {
-      if (!options.author) options.author = this.author
       const response = await axios.post(this.baseUrl + `/logs/get/${this.token}`, options)
       return response.data.logs
     } catch (error) {
