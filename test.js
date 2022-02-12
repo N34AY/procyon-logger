@@ -14,3 +14,5 @@ async function testGetLogs() {
   console.log(response.docs)
 }
 testGetLogs()
+
+logger.sendLog()

@@ -1,4 +1,7 @@
-import { Greeter } from '../index';
-test('My Greeter', () => {
-  expect(Greeter('Carl')).toBe('Hello Carl');
-});
+import Logger from "../index"
+
+
+test('Init Logger', () => {
+  const logger = new Logger('token', 'n34ay', true)
+  expect(logger).toBe('Hello Carl');
+})
